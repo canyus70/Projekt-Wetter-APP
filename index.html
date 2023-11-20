@@ -7,33 +7,41 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <div id="display">
+    <div id="display" class="wolkigZwei">
       <form>
         <label>Wo bist du? </label>
         <input type="text" id="standort" placeholder="Stadt, Land, PLZ..." />
         <button>Zeig mir das Wetter</button>
       </form>
       <article id="important">
-        <p id="wetter">regen</p>
-        <p id="temperatur">28°C</p>
         <p id="location">London</p>
+        <p id="temperatur">28°C</p>
+        <p id="wetter">regen</p>
       </article>
-      <article id="additional">
-        <p id="wetterBeschreibung">leicht regnerisch</p>
-        <p id="maxTemp">27</p>
-        <p id="minTemp">21</p>
-        <p id="gefühltTemp">29</p>
-        <p id="luftdruck">1005hp</p>
-        <p id="windgeschwindigkeit">39km/h</p>
-        <p id="windrichtung">352°</p>
-        <p id="böhen">80km/h</p>
+      <article id="additional" class="grid">
+        <p>Wetter:</p>
+        <span id="wetterBeschreibung">leicht regnerisch</span>
+        <p>Höchsttemperatur:</p>
+        <span id="maxTemp">27</span>
+        <p>Tiefsttemperatur:</p>
+        <span id="minTemp">21</span>
+        <p>Gefühlte Temperatur:</p>
+        <span id="gefühltTemp">29</span>
+        <p>Luftdruck:</p>
+        <span id="luftdruck">1005hp</span>
+        <p>Windgeschwindigkeit:</p>
+        <span id="windgeschwindigkeit">39km/h</span>
+        <p>Windrichtung:</p>
+        <span id="windrichtung">352°</span>
+        <p>Böhen bis zu:</p>
+        <span id="böhen">80km/h</span>
       </article>
       <article id="fiveDay">
-        <p id="dayOne">Regen 15°C Morgen</p>
-        <p id="dayTwo">Windig 12°C Datum</p>
-        <p id="dayThree">Sonne 18°C Datum</p>
-        <p id="dayFour">Sonne 18°C Datum</p>
-        <p id="dayFive">Sonne 18°C Datum</p>
+        <p id="dayOne">Datum Regen 15°C</p>
+        <p id="dayTwo">Datum Windig 12°C</p>
+        <p id="dayThree">Datum Sonne 18°C</p>
+        <p id="dayFour">Datum Sonne 18°C</p>
+        <p id="dayFive">Datum Sonne 18°C</p>
       </article>
     </div>
     <script src="./assets/js/main.js"></script>
