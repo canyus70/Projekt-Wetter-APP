@@ -15,15 +15,15 @@ div {
   margin: auto;
   margin-top: 75px;
   text-align: center;
+  padding: 10px;
+}
+article:nth-of-type(1) {
 }
 article {
   margin: 20px;
   background-color: rgba(255, 255, 255, 0.435);
   border-radius: 20px;
   padding: 10px;
-}
-form {
-  padding-top: 20px;
 }
 label {
   display: block;
