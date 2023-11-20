@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projekt Wetter APP</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-    
-
-
-
-
-
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div id="display">
+      <form>
+        <label>Wo bist du? </label>
+        <input type="text" id="standort" placeholder="Stadt, Land, PLZ..." />
+        <button>Zeig mir das Wetter</button>
+      </form>
+      <article id="important">
+        <p id="wetterlage">regen</p>
+        <p id="temperatur">28°C</p>
+        <p id="location">Regensburg</p>
+      </article>
+      <article id="additional">
+        <p id="maxTemp">27</p>
+        <p id="minTemp">21</p>
+        <p id="gefühltTemp">29</p>
+        <p id="luftdruck">1005hp</p>
+        <p id="windgeschwindigkeit">39km/h</p>
+        <p id="windrichtung">352°</p>
+        <p id="böhen">80km/h</p>
+      </article>
+      <article id="fiveDay">
+        <p id="dayOne">Regen 15°C Morgen</p>
+        <p id="dayTwo">Windig 12°C Datum</p>
+        <p id="dayThree">Sonne 18°C Datum</p>
+        <p id="dayFour">Sonne 18°C Datum</p>
+        <p id="dayFive">Sonne 18°C Datum</p>
+      </article>
+    </div>
     <script src="./assets/js/main.js"></script>
-</body>
+  </body>
 </html>

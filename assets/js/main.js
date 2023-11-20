@@ -1,5 +1,3 @@
-// hallo bruno hier ist mein branch: yusuf
-
 
 // fetch('https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=034b30eb230e77ea19f67cc74c9589f1')
 //             .then(response=> {
@@ -73,9 +71,3 @@ document.addEventListener("click", version1);
 //                 return response.json();
 //                 console.log(json())
 //             })
-
-
-
-
-
-
