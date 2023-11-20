@@ -2,31 +2,60 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 body {
   height: 1vh;
   width: 100%;
 }
 div {
-  height: 600px;
+  height: 650px;
   width: 400px;
   border-radius: 50px;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 75px;
   text-align: center;
 }
 article {
   margin: 20px;
-  background-color: rgba(255, 255, 255, 0.26);
+  background-color: rgba(255, 255, 255, 0.435);
   border-radius: 20px;
-  padding: 5px;
+  padding: 10px;
 }
 form {
   padding-top: 20px;
 }
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+input {
+  background-color: rgba(0, 255, 255, 0);
+  border: 1px solid rgba(0, 0, 0, 0.261);
+  padding: 2px;
+}
+button {
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(47, 79, 79, 0.471);
+  margin-top: 10px;
+  transition: 0.1s;
+}
+button:hover {
+  scale: 1.2;
+  box-shadow: 0 0 5px black;
+}
 article.grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  line-height: 25px;
+}
+.grid p {
+  text-align: left;
+}
+.grid span {
+  text-align: right;
 }
 input {
   display: block;
@@ -52,4 +81,8 @@ input {
 .gewitter {
   background: url("https://images.unsplash.com/photo-1429552077091-836152271555?q=80&w=2088&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
+}
+#temperatur {
+  font-size: 2rem;
+  font-weight: 700;
 }
