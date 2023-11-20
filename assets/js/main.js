@@ -24,7 +24,8 @@ const version1 = () => {
                     const windRichtung = data.wind.deg;
                     const boehen = data.wind.gust;
 
-                    document.getElementById("wetterlage").textContent= wetter;
+                    document.getElementById("wetter").textContent= wetter;
+                    document.getElementById("wetterBeschreibung").textContent= wetterBeschreibung;
                     document.getElementById("temperatur").textContent= (temperatur -273.15).toFixed(0) +" "+ "°C";
                     document.getElementById("location").textContent= location;
                     document.getElementById("maxTemp").textContent= (maxTemp -273.15).toFixed(0) +" "+ "°C";
