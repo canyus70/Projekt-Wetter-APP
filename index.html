@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <div id="display" class="wolkigZwei">
-      <form>
-        <label>Wo bist du? </label>
-        <input type="text" id="standort" placeholder="Stadt, Land, PLZ..." />
-        <button>Zeig mir das Wetter</button>
-      </form>
+    <div id="display" class="gewitter">
+      <article>
+        <form>
+          <label>Wo bist du? </label>
+          <input type="text" id="standort" placeholder="Stadt, Land, PLZ..." />
+          <button>Zeig mir das Wetter</button>
+        </form>
+      </article>
       <article id="important">
         <p id="location">London</p>
         <p id="temperatur">28°C</p>
@@ -36,12 +38,22 @@
         <p>Böhen bis zu:</p>
         <span id="böhen">80km/h</span>
       </article>
-      <article id="fiveDay">
-        <p id="dayOne">Datum Regen 15°C</p>
-        <p id="dayTwo">Datum Windig 12°C</p>
-        <p id="dayThree">Datum Sonne 18°C</p>
-        <p id="dayFour">Datum Sonne 18°C</p>
-        <p id="dayFive">Datum Sonne 18°C</p>
+      <article id="fiveDay" class="forecast">
+        <p id="dayOne">datum</p>
+        <p id="dayOneSymbol">symbol</p>
+        <p id="dayOneTemp">temperatur</p>
+        <p id="dayTwo">datum</p>
+        <p id="dayTwoSymbol">symbol</p>
+        <p id="dayTwoTemp">temperatur</p>
+        <p id="dayThree">datum</p>
+        <p id="dayThreeSymbol">symbol</p>
+        <p id="dayThreeTemp">temperatur</p>
+        <p id="dayFour">datum</p>
+        <p id="dayFourSymbol">symbol</p>
+        <p id="dayFourTemp">temperatur</p>
+        <p id="dayFive">datum</p>
+        <p id="dayFiveSymbol">symbol</p>
+        <p id="dayFiveTemp">temperatur</p>
       </article>
     </div>
     <script src="./assets/js/main.js"></script>
