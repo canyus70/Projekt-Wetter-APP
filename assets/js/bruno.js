@@ -48,4 +48,14 @@ fetch(
     document.getElementById("dayThreeTemp").textContent = temperaturDrei;
     document.getElementById("dayFourTemp").textContent = temperaturVier;
     document.getElementById("dayFiveTemp").textContent = temperaturFünf;
+    document.getElementById("dayOneSymbol").textContent = symbolEins;
+    document.getElementById("dayTwoSymbol").textContent = symbolZwei;
+    document.getElementById("dayThreeSymbol").textContent = symbolDrei;
+    document.getElementById("dayFourSymbol").textContent = symbolVier;
+    document.getElementById("dayFiveSymbol").textContent = symbolFünf;
   });
+
+document.getElementById("display").style.scale = 0.01;
+document.getElementById("display").style.rotate = 180;
+document.getElementById("display").style.scale = 1;
+document.getElementById("display").style.rotate = 0;
