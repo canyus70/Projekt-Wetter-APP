@@ -40,6 +40,28 @@ const version1 = () => {
 
       const himmelsrichtung = getHimmelsrichtung(windRichtung);
 
+      const rain = data.rain && data.rain["1h"];
+      const clouds = data.clouds && data.clouds.all;
+
+      function setBackground(rain, cloud) {
+        if (rain > 0) {
+          return "regen";
+        } else if (cloud > 60) {
+          return "wolkigZwei";
+        } else if (cloud <= 60 && cloud >= 30) {
+          return "wolkig";
+        } else {
+          return "sonne";
+        }
+      }
+
+      const hintergrund = setBackground(rain, clouds);
+
+      document
+        .getElementById("display")
+        .classList.remove("regen", "wolkigZwei", "wolkig", "sonne");
+      document.getElementById("display").classList.add(hintergrund);
+
       document.getElementById("wetter").innerHTML =
         `<img src="https://openweathermap.org/img/wn/` + icon + `@2x.png">`;
       document.getElementById("wetterBeschreibung").textContent =
@@ -207,6 +229,29 @@ const version2 = () => {
       }
 
       const himmelsrichtung = getHimmelsrichtung(windRichtung);
+
+      const rain = data.rain && data.rain["1h"];
+      const clouds = data.clouds.all;
+
+      function setBackground(rain, cloud) {
+        if (rain > 0) {
+          return "regen";
+        } else if (cloud > 60) {
+          return "wolkigZwei";
+        } else if (cloud <= 60 && cloud >= 30) {
+          return "wolkig";
+        } else {
+          return "sonne";
+        }
+      }
+
+      const hintergrund = setBackground(rain, clouds);
+      console.log(hintergrund);
+
+      document
+        .getElementById("display")
+        .classList.remove("regen", "wolkigZwei", "wolkig", "sonne");
+      document.getElementById("display").classList.add(hintergrund);
 
       document.getElementById("wetter").innerHTML =
         `<img src="https://openweathermap.org/img/wn/` + icon + `@2x.png">`;
