@@ -7,41 +7,79 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <div id="display" class="wolkigZwei">
-      <form>
-        <label>Wo bist du? </label>
-        <input type="text" id="standort" placeholder="Stadt, Land, PLZ..." />
-        <button>Zeig mir das Wetter</button>
-      </form>
+    <div id="display" class="sonne">
+      <article>
+        <form onsubmit="return false">
+          <label>Wo bist du? </label>
+          <input type="text" id="standort" placeholder="Stadt, Land, PLZ..." />
+          <button>Zeig mir das Wetter</button>
+        </form>
+      </article>
       <article id="important">
         <p id="location">London</p>
         <p id="temperatur">28°C</p>
         <p id="wetter">regen</p>
       </article>
       <article id="additional" class="grid">
-        <p>Wetter:</p>
-        <span id="wetterBeschreibung">leicht regnerisch</span>
-        <p>Höchsttemperatur:</p>
-        <span id="maxTemp">27</span>
-        <p>Tiefsttemperatur:</p>
-        <span id="minTemp">21</span>
-        <p>Gefühlte Temperatur:</p>
-        <span id="gefühltTemp">29</span>
-        <p>Luftdruck:</p>
-        <span id="luftdruck">1005hp</span>
-        <p>Windgeschwindigkeit:</p>
-        <span id="windgeschwindigkeit">39km/h</span>
-        <p>Windrichtung:</p>
-        <span id="windrichtung">352°</span>
-        <p>Böhen bis zu:</p>
-        <span id="böhen">80km/h</span>
+        <section>
+          <p>Wetter:</p>
+          <span id="wetterBeschreibung">leicht regnerisch</span>
+        </section>
+        <section>
+          <p>Höchsttemperatur:</p>
+          <span id="maxTemp">27</span>
+        </section>
+        <section>
+          <p>Tiefsttemperatur:</p>
+          <span id="minTemp">21</span>
+        </section>
+        <section>
+          <p>Gefühlte Temperatur:</p>
+          <span id="gefühltTemp">29</span>
+        </section>
+        <section>
+          <p>Luftdruck:</p>
+          <span id="luftdruck">1005hp</span>
+        </section>
+        <section>
+          <p>Windgeschwindigkeit:</p>
+          <span id="windgeschwindigkeit">39km/h</span>
+        </section>
+        <section>
+          <p>Windrichtung:</p>
+          <span id="windrichtung">352°</span>
+        </section>
+        <section>
+          <p>Böhen bis zu:</p>
+          <span id="böhen">80km/h</span>
+        </section>
       </article>
-      <article id="fiveDay">
-        <p id="dayOne">Datum Regen 15°C</p>
-        <p id="dayTwo">Datum Windig 12°C</p>
-        <p id="dayThree">Datum Sonne 18°C</p>
-        <p id="dayFour">Datum Sonne 18°C</p>
-        <p id="dayFive">Datum Sonne 18°C</p>
+      <article id="fiveDay" class="forecast">
+        <section>
+          <p id="dayOne">datum</p>
+          <p id="dayOneSymbol">symbol</p>
+          <p id="dayOneTemp">temperatur</p>
+        </section>
+        <section>
+          <p id="dayTwo">datum</p>
+          <p id="dayTwoSymbol">symbol</p>
+          <p id="dayTwoTemp">temperatur</p>
+        </section>
+        <section>
+          <p id="dayThree">datum</p>
+          <p id="dayThreeSymbol">symbol</p>
+          <p id="dayThreeTemp">temperatur</p>
+        </section>
+        <section>
+          <p id="dayFour">datum</p>
+          <p id="dayFourSymbol">symbol</p>
+          <p id="dayFourTemp">temperatur</p>
+        </section>
+        <section>
+          <p id="dayFive">datum</p>
+          <p id="dayFiveSymbol">symbol</p>
+          <p id="dayFiveTemp">temperatur</p>
+        </section>
       </article>
     </div>
     <script src="./assets/js/main.js"></script>
