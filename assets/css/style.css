@@ -106,14 +106,10 @@ button:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
 .grid section:nth-of-type(7) {
-  padding-inline: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-.grid section:nth-of-type(8) {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   padding: 0 10px 10px 10px;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 input {
   display: block;
