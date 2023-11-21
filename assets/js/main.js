@@ -82,6 +82,7 @@ const version2 = () => {
         console.log(data)
 
 
+
         return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${late}&lon=${longe}&appid=034b30eb230e77ea19f67cc74c9589f1`);
     })
     .then(response => {
@@ -106,8 +107,6 @@ const version2 = () => {
             const windGeschwindigKeit = data.wind.speed;
             const windRichtung = data.wind.deg;
             const icon = data.weather[0].icon;
-
-
 
 function getHimmelsrichtung(grad) {
 const ost = 45;
@@ -139,6 +138,13 @@ const himmelsrichtung = getHimmelsrichtung(windRichtung);
                     document.getElementById("windgeschwindigkeit").textContent= (windGeschwindigKeit *3.6).toFixed(0) + " km/h";
                     document.getElementById("windrichtung").textContent= himmelsrichtung;
     })
+
+    
+
+
+
+
+    
 
 }
 document.body.querySelector("#button").addEventListener("click", version2);

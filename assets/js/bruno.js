@@ -39,7 +39,7 @@ const version2 = () => {
           late +
           "&lon=" +
           longe +
-          "&cnt=7&appid={API key}"
+          "&cnt=7&appid=034b30eb230e77ea19f67cc74c9589f1"
       );
     })
     .then((response) => {
