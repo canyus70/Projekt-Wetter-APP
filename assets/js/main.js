@@ -26,25 +26,24 @@ const version1 = () => {
                     const icon = data.weather[0].icon;
 
 
-                    function getHimmelsrichtung(grad) {
-                        const ost = 45;
-                        const süd = 135;
-                        const west = 225;
-                        const nord = 315;
-                      
-                        if (grad >= ost && grad < süd) {
-                          return "Ost";
+function getHimmelsrichtung(grad) {
+const ost = 45;
+const süd = 135;
+const west = 225;
+const nord = 315;
+            
+                    if (grad >= ost && grad < süd) {
+                        return "Ost";
                         } else if (grad >= süd && grad < west) {
-                          return "Süd";
+                        return "Süd";
                         } else if (grad >= west && grad < nord) {
-                          return "West";
+                        return "West";
                         } else {
-                          return "Nord";
+                        return "Nord";
                         }
-                      }
-                      
-                      const himmelsrichtung = getHimmelsrichtung(windRichtung);
-                      console.log(himmelsrichtung);
+                    }
+
+const himmelsrichtung = getHimmelsrichtung(windRichtung);
 
 
 
@@ -60,16 +59,15 @@ const version1 = () => {
                     document.getElementById("windgeschwindigkeit").textContent= (windGeschwindigKeit *3.6).toFixed(0) + " km/h";
                     document.getElementById("windrichtung").textContent= himmelsrichtung;
                     document.getElementById("böhen").textContent= boehen + " km/h";
-                    // console.log(windRichtung);   
                 })
 }
 console.log(version1())
 
 document.addEventListener("click", version1);
 
-var inputStadt = document.body.querySelector("standort");
+let inputStadt = document.body.querySelector("#standort");
 
-inputStadt = "London"
+inputStadt = "London";
 
 
 const version2 = () => {
@@ -83,6 +81,7 @@ const version2 = () => {
     .then(data => {
         const late = data[0].lat;
         const longe = data[0].lon;
+        console.log(late);
 
         return fetch("https://api.openweathermap.org/data/2.5/weather?lat=" +late+"&lon=" +longe +"&appid=034b30eb230e77ea19f67cc74c9589f1");
     })
@@ -108,28 +107,27 @@ const version2 = () => {
             const windRichtung = data.wind.deg;
             const boehen = data.wind.gust;
             const icon = data.weather[0].icon;
-            console.log(stadtName);
 
 
-            function getHimmelsrichtung(grad) {
-                const ost = 45;
-                const süd = 135;
-                const west = 225;
-                const nord = 315;
+
+function getHimmelsrichtung(grad) {
+const ost = 45;
+const süd = 135;
+const west = 225;
+const nord = 315;
             
-                if (grad >= ost && grad < süd) {
-                  return "Ost";
-                } else if (grad >= süd && grad < west) {
-                  return "Süd";
-                } else if (grad >= west && grad < nord) {
-                  return "West";
-                } else {
-                  return "Nord";
-                }
-              }
-              
-              const himmelsrichtung = getHimmelsrichtung(windRichtung);
-              console.log(himmelsrichtung);
+            if (grad >= ost && grad < süd) {
+                return "Ost";
+            } else if (grad >= süd && grad < west) {
+                return "Süd";
+            } else if (grad >= west && grad < nord) {
+                return "West";
+            } else {
+                return "Nord";
+            }
+}
+
+const himmelsrichtung = getHimmelsrichtung(windRichtung);
 
             document.getElementById("wetter").innerHTML= `<img src="https://openweathermap.org/img/wn/`+icon+`@2x.png">`;
                     document.getElementById("wetterBeschreibung").textContent= wetterBeschreibung;
@@ -146,45 +144,50 @@ const version2 = () => {
     })
 
 }
+document.body.querySelector("#button").addEventListener("click", version2);
 
 console.log(version2());
 
+// const version3 = () => {
+
+//     fetch(
+//         "api.openweathermap.org/data/2.5/forecast/daily?lat=" +
+//         late +
+//         "&lon=" +
+//         longe +
+//         "&cnt=7&appid=034b30eb230e77ea19f67cc74c9589f1"
+//         )
+//         .then((response) => {
+//             if (response.ok === false) {
+//             throw new Error("Fetch konnte nicht geladen werden");
+//             }
+//             return response.json();
+//         })
+//         .then((data) => {
+// const temperaturEins = data.list[1].temp.day;
+// const temperaturZwei = data.list[2].temp.day;
+// const temperaturDrei = data.list[3].temp.day;
+// const temperaturVier = data.list[4].temp.day;
+// const temperaturFünf = data.list[5].temp.day;
+// const symbolEins = data.list[1].weather.icon;
+// const symbolZwei = data.list[2].weather.icon;
+// const symbolDrei = data.list[3].weather.icon;
+// const symbolVier = data.list[4].weather.icon;
+// const symbolFünf = data.list[5].weather.icon;
+
+// document.getElementById("dayOneTemp").textContent = temperaturEins;
+// document.getElementById("dayTwoTemp").textContent = temperaturZwei;
+// document.getElementById("dayThreeTemp").textContent = temperaturDrei;
+// document.getElementById("dayFourTemp").textContent = temperaturVier;
+// document.getElementById("dayFiveTemp").textContent = temperaturFünf;
+// });
+
+// }
+// document.addEventListener("click", version3);
+
+// console.log(version3())
 
 
 
 
 
-
-
-  
-  fetch(
-    "api.openweathermap.org/data/2.5/forecast/daily?lat=" +
-      late +
-      "&lon=" +
-      longe +
-      "&cnt=7&appid=034b30eb230e77ea19f67cc74c9589f1"
-  )
-    .then((response) => {
-      if (response.ok === false) {
-        throw new Error("Fetch konnte nicht geladen werden");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      const temperaturEins = data.list[1].temp.day;
-      const temperaturZwei = data.list[2].temp.day;
-      const temperaturDrei = data.list[3].temp.day;
-      const temperaturVier = data.list[4].temp.day;
-      const temperaturFünf = data.list[5].temp.day;
-      const symbolEins = data.list[1].weather.icon;
-      const symbolZwei = data.list[2].weather.icon;
-      const symbolDrei = data.list[3].weather.icon;
-      const symbolVier = data.list[4].weather.icon;
-      const symbolFünf = data.list[5].weather.icon;
-  
-      document.getElementById("dayOneTemp").textContent = temperaturEins;
-      document.getElementById("dayTwoTemp").textContent = temperaturZwei;
-      document.getElementById("dayThreeTemp").textContent = temperaturDrei;
-      document.getElementById("dayFourTemp").textContent = temperaturVier;
-      document.getElementById("dayFiveTemp").textContent = temperaturFünf;
-    });
