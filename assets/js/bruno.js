@@ -32,14 +32,9 @@ const version2 = () => {
     .then((data) => {
       const late = data[0].lat;
       const longe = data[0].lon;
-      console.log(late);
 
       return fetch(
-        "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" +
-          late +
-          "&lon=" +
-          longe +
-          "&cnt=7&appid={API key}"
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${late}&lon=${longe}&appid=034b30eb230e77ea19f67cc74c9589f1`
       );
     })
     .then((response) => {
@@ -49,16 +44,23 @@ const version2 = () => {
       return response.json();
     })
     .then((data) => {
-      const temperaturEins = data.list[1].temp.day;
-      const temperaturZwei = data.list[2].temp.day;
-      const temperaturDrei = data.list[3].temp.day;
-      const temperaturVier = data.list[4].temp.day;
-      const temperaturFünf = data.list[5].temp.day;
+      const temperaturEins =
+        (data.list[1].main.temp - 273.15).toFixed(0) + " °C";
+      const temperaturZwei =
+        (data.list[2].main.temp - 273.15).toFixed(0) + " °C";
+      const temperaturDrei =
+        (data.list[3].main.temp - 273.15).toFixed(0) + " °C";
+      const temperaturVier =
+        (data.list[4].main.temp - 273.15).toFixed(0) + " °C";
+      const temperaturFünf =
+        (data.list[5].main.temp - 273.15).toFixed(0) + " °C";
       const symbolEins = data.list[1].weather.icon;
       const symbolZwei = data.list[2].weather.icon;
       const symbolDrei = data.list[3].weather.icon;
       const symbolVier = data.list[4].weather.icon;
       const symbolFünf = data.list[5].weather.icon;
+      console.log(temperaturDrei);
+
       const today = new Date();
       const dayAfterTomorrow = new Date(today);
       dayAfterTomorrow.setDate(today.getDate() + 2);
@@ -91,11 +93,26 @@ const version2 = () => {
       document.getElementById("dayThreeTemp").textContent = temperaturDrei;
       document.getElementById("dayFourTemp").textContent = temperaturVier;
       document.getElementById("dayFiveTemp").textContent = temperaturFünf;
-      document.getElementById("dayOneSymbol").textContent = symbolEins;
-      document.getElementById("dayTwoSymbol").textContent = symbolZwei;
-      document.getElementById("dayThreeSymbol").textContent = symbolDrei;
-      document.getElementById("dayFourSymbol").textContent = symbolVier;
-      document.getElementById("dayFiveSymbol").textContent = symbolFünf;
+      document.getElementById("dayOneSymbol").innerHTML =
+        `<img src="https://openweathermap.org/img/wn/` +
+        symbolEins +
+        `@2x.png">`;
+      document.getElementById("dayTwoSymbol").innerHTML =
+        `<img src="https://openweathermap.org/img/wn/` +
+        symbolZwei +
+        `@2x.png">`;
+      document.getElementById("dayThreeSymbol").innerHTML =
+        `<img src="https://openweathermap.org/img/wn/` +
+        symbolDrei +
+        `@2x.png">`;
+      document.getElementById("dayFourSymbol").innerHTML =
+        `<img src="https://openweathermap.org/img/wn/` +
+        symbolVier +
+        `@2x.png">`;
+      document.getElementById("dayFiveSymbol").innerHTML =
+        `<img src="https://openweathermap.org/img/wn/` +
+        symbolFünf +
+        `@2x.png">`;
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
