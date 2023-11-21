@@ -1,5 +1,5 @@
 const version1 = () => {
-    fetch('https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=034b30eb230e77ea19f67cc74c9589f1')
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat=49.01&lon=12.09&appid=034b30eb230e77ea19f67cc74c9589f1')
             .then(response=> {
                 if(response.ok === false) {
                     throw new Error ("Fetch konnte nicht geladen werden")
@@ -21,7 +21,6 @@ const version1 = () => {
                     const luftDruck= data.main.pressure;
                     const windGeschwindigKeit = data.wind.speed;
                     const windRichtung = data.wind.deg;
-                    const boehen = data.wind.gust;
                     const icon = data.weather[0].icon;
 
 
@@ -57,20 +56,18 @@ const himmelsrichtung = getHimmelsrichtung(windRichtung);
                     document.getElementById("luftdruck").textContent= luftDruck+ " hp";
                     document.getElementById("windgeschwindigkeit").textContent= (windGeschwindigKeit *3.6).toFixed(0) + " km/h";
                     document.getElementById("windrichtung").textContent= himmelsrichtung;
-                    document.getElementById("böhen").textContent= boehen + " km/h";
                 })
 }
-console.log(version1())
 
-document.addEventListener("click", version1);
+document.addEventListener("load", version1);
 
 let inputStadt = document.body.querySelector("#standort");
 
-inputStadt = "London";
+// inputStadt = "Hamburg";
 
 
 const version2 = () => {
-    fetch("http://api.openweathermap.org/geo/1.0/direct?q=" +inputStadt+",&appid=034b30eb230e77ea19f67cc74c9589f1")
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${inputStadt.value}&appid=034b30eb230e77ea19f67cc74c9589f1`)
     .then(response=> {
         if(response.ok === false) {
             throw new Error ("Fetch konnte nicht geladen werden")
@@ -80,9 +77,12 @@ const version2 = () => {
     .then(data => {
         const late = data[0].lat;
         const longe = data[0].lon;
-        console.log(late);
+        console.log(late)
+        console.log(longe)
+        console.log(data)
 
-        return fetch("https://api.openweathermap.org/data/2.5/weather?lat=" +late+"&lon=" +longe +"&appid=034b30eb230e77ea19f67cc74c9589f1");
+
+        return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${late}&lon=${longe}&appid=034b30eb230e77ea19f67cc74c9589f1`);
     })
     .then(response => {
         if (!response.ok) {
@@ -91,6 +91,7 @@ const version2 = () => {
         return response.json();
     })
     .then(data => {
+        console.log(data)
             const stadtName= data.name;
             const temperatur = data.main.temp;
             const gefühlteTemperatur = data.main.feels_like;
@@ -104,7 +105,6 @@ const version2 = () => {
             const luftDruck= data.main.pressure;
             const windGeschwindigKeit = data.wind.speed;
             const windRichtung = data.wind.deg;
-            const boehen = data.wind.gust;
             const icon = data.weather[0].icon;
 
 
@@ -138,14 +138,11 @@ const himmelsrichtung = getHimmelsrichtung(windRichtung);
                     document.getElementById("luftdruck").textContent= luftDruck+ " hp";
                     document.getElementById("windgeschwindigkeit").textContent= (windGeschwindigKeit *3.6).toFixed(0) + " km/h";
                     document.getElementById("windrichtung").textContent= himmelsrichtung;
-                    document.getElementById("böhen").textContent= boehen + " km/h";
-
     })
 
 }
 document.body.querySelector("#button").addEventListener("click", version2);
 
-console.log(version2());
 
 // const version3 = () => {
 
