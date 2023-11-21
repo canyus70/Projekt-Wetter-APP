@@ -116,6 +116,9 @@ input {
   margin: auto;
   width: 75%;
 }
+.forecast img {
+  max-height: 20px;
+}
 .forecast section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

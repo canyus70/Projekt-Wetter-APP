@@ -103,11 +103,11 @@ const fiveDayforecastLoad = () => {
         (data.list[4].main.temp - 273.15).toFixed(0) + " °C";
       const temperaturFünf =
         (data.list[5].main.temp - 273.15).toFixed(0) + " °C";
-      const symbolEins = data.list[1].weather.icon;
-      const symbolZwei = data.list[2].weather.icon;
-      const symbolDrei = data.list[3].weather.icon;
-      const symbolVier = data.list[4].weather.icon;
-      const symbolFünf = data.list[5].weather.icon;
+      const symbolEins = data.list[0].weather[0].icon;
+      const symbolZwei = data.list[1].weather[0].icon;
+      const symbolDrei = data.list[3].weather[0].icon;
+      const symbolVier = data.list[4].weather[0].icon;
+      const symbolFünf = data.list[5].weather[0].icon;
 
       const today = new Date();
       const dayAfterTomorrow = new Date(today);
@@ -309,11 +309,11 @@ const fiveDayforecast = () => {
         (data.list[4].main.temp - 273.15).toFixed(0) + " °C";
       const temperaturFünf =
         (data.list[5].main.temp - 273.15).toFixed(0) + " °C";
-      const symbolEins = data.list[1].weather.icon;
-      const symbolZwei = data.list[2].weather.icon;
-      const symbolDrei = data.list[3].weather.icon;
-      const symbolVier = data.list[4].weather.icon;
-      const symbolFünf = data.list[5].weather.icon;
+      const symbolEins = data.list[0].weather[0].icon;
+      const symbolZwei = data.list[1].weather[0].icon;
+      const symbolDrei = data.list[3].weather[0].icon;
+      const symbolVier = data.list[4].weather[0].icon;
+      const symbolFünf = data.list[5].weather[0].icon;
 
       const today = new Date();
       const dayAfterTomorrow = new Date(today);
