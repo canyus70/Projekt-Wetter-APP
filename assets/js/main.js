@@ -26,6 +26,28 @@ const version1 = () => {
                     const icon = data.weather[0].icon;
 
 
+                    function getHimmelsrichtung(grad) {
+                        const ost = 45;
+                        const süd = 135;
+                        const west = 225;
+                        const nord = 315;
+                      
+                        if (grad >= ost && grad < süd) {
+                          return "Ost";
+                        } else if (grad >= süd && grad < west) {
+                          return "Süd";
+                        } else if (grad >= west && grad < nord) {
+                          return "West";
+                        } else {
+                          return "Nord";
+                        }
+                      }
+                      
+                      const himmelsrichtung = getHimmelsrichtung(windRichtung);
+                      console.log(himmelsrichtung);
+
+
+
                     // document.getElementById("wetter").textContent= wetter;
                     document.getElementById("wetter").innerHTML= `<img src="https://openweathermap.org/img/wn/`+icon+`@2x.png">`;
                     document.getElementById("wetterBeschreibung").textContent= wetterBeschreibung;
@@ -36,7 +58,7 @@ const version1 = () => {
                     document.getElementById("gefühltTemp").textContent= (gefühlteTemperatur -273.15).toFixed(0) +" "+ "°C";
                     document.getElementById("luftdruck").textContent= luftDruck+ " hp";
                     document.getElementById("windgeschwindigkeit").textContent= (windGeschwindigKeit *3.6).toFixed(0) + " km/h";
-                    document.getElementById("windrichtung").textContent= windRichtung + " °";
+                    document.getElementById("windrichtung").textContent= himmelsrichtung;
                     document.getElementById("böhen").textContent= boehen + " km/h";
                     // console.log(windRichtung);   
                 })
@@ -88,6 +110,27 @@ const version2 = () => {
             const icon = data.weather[0].icon;
             console.log(stadtName);
 
+
+            function getHimmelsrichtung(grad) {
+                const ost = 45;
+                const süd = 135;
+                const west = 225;
+                const nord = 315;
+            
+                if (grad >= ost && grad < süd) {
+                  return "Ost";
+                } else if (grad >= süd && grad < west) {
+                  return "Süd";
+                } else if (grad >= west && grad < nord) {
+                  return "West";
+                } else {
+                  return "Nord";
+                }
+              }
+              
+              const himmelsrichtung = getHimmelsrichtung(windRichtung);
+              console.log(himmelsrichtung);
+
             document.getElementById("wetter").innerHTML= `<img src="https://openweathermap.org/img/wn/`+icon+`@2x.png">`;
                     document.getElementById("wetterBeschreibung").textContent= wetterBeschreibung;
                     document.getElementById("temperatur").textContent= (temperatur -273.15).toFixed(0) +" "+ "°C";
@@ -97,7 +140,7 @@ const version2 = () => {
                     document.getElementById("gefühltTemp").textContent= (gefühlteTemperatur -273.15).toFixed(0) +" "+ "°C";
                     document.getElementById("luftdruck").textContent= luftDruck+ " hp";
                     document.getElementById("windgeschwindigkeit").textContent= (windGeschwindigKeit *3.6).toFixed(0) + " km/h";
-                    document.getElementById("windrichtung").textContent= windRichtung + " °";
+                    document.getElementById("windrichtung").textContent= himmelsrichtung;
                     document.getElementById("böhen").textContent= boehen + " km/h";
 
     })
@@ -105,3 +148,43 @@ const version2 = () => {
 }
 
 console.log(version2());
+
+
+
+
+
+
+
+
+  
+  fetch(
+    "api.openweathermap.org/data/2.5/forecast/daily?lat=" +
+      late +
+      "&lon=" +
+      longe +
+      "&cnt=7&appid=034b30eb230e77ea19f67cc74c9589f1"
+  )
+    .then((response) => {
+      if (response.ok === false) {
+        throw new Error("Fetch konnte nicht geladen werden");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const temperaturEins = data.list[1].temp.day;
+      const temperaturZwei = data.list[2].temp.day;
+      const temperaturDrei = data.list[3].temp.day;
+      const temperaturVier = data.list[4].temp.day;
+      const temperaturFünf = data.list[5].temp.day;
+      const symbolEins = data.list[1].weather.icon;
+      const symbolZwei = data.list[2].weather.icon;
+      const symbolDrei = data.list[3].weather.icon;
+      const symbolVier = data.list[4].weather.icon;
+      const symbolFünf = data.list[5].weather.icon;
+  
+      document.getElementById("dayOneTemp").textContent = temperaturEins;
+      document.getElementById("dayTwoTemp").textContent = temperaturZwei;
+      document.getElementById("dayThreeTemp").textContent = temperaturDrei;
+      document.getElementById("dayFourTemp").textContent = temperaturVier;
+      document.getElementById("dayFiveTemp").textContent = temperaturFünf;
+    });
