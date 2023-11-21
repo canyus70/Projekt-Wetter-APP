@@ -59,3 +59,28 @@ document.getElementById("display").style.scale = 0.01;
 document.getElementById("display").style.rotate = 180;
 document.getElementById("display").style.scale = 1;
 document.getElementById("display").style.rotate = 0;
+
+const today = new Date();
+const dayAfterTomorrow = new Date(today);
+dayAfterTomorrow.setDate(today.getDate() + 2);
+const thirdDay = new Date(today);
+thirdDay.setDate(today.getDate() + 3);
+const fourthDay = new Date(today);
+fourthDay.setDate(today.getDate() + 4);
+const fifthDay = new Date(today);
+fifthDay.setDate(today.getDate() + 5);
+
+const getAbbreviatedDayName = (date) => {
+  const daysOfWeek = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
+  return daysOfWeek[date.getDay()];
+};
+
+const dayAfterTomorrowAbbreviated = getAbbreviatedDayName(dayAfterTomorrow);
+const thirdDayAbbreviated = getAbbreviatedDayName(thirdDay);
+const fourthDayAbbreviated = getAbbreviatedDayName(fourthDay);
+const fifthDayAbbreviated = getAbbreviatedDayName(fifthDay);
+document.getElementById("dayAfterTomorrow").textContent =
+  dayAfterTomorrowAbbreviated;
+document.getElementById("thirdDay").textContent = thirdDayAbbreviated;
+document.getElementById("fourthDay").textContent = fourthDayAbbreviated;
+document.getElementById("fifthDay").textContent = fifthDayAbbreviated;
